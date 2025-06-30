@@ -1,0 +1,34 @@
+name: AI Commit Message Generator
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  ai_commit_job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install Node.js dependencies
+      run: npm install
+
+    - name: Run AI Commit Script
+      run: node ai-commit.js
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+    - name: Commit AI Generated Message
+      run: |
+        git config --global user.name "AI Commit Bot"
+        git config --global user.email "phuvo1288@gmail.com"
+        git add AI_COMMIT_MESSAGE.txt
+        git commit -m "$(cat AI_COMMIT_MESSAGE.txt)"
+        git push
