@@ -1,4 +1,8 @@
 node_modules/
 AI_COMMIT_MESSAGE.txt
+<<<<<<< HEAD
 .env
 1111
+=======
+.env
+>>>>>>> 852a94b8f491883ab79e77603783756441e63bd6
