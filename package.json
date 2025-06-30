@@ -1,0 +1,13 @@
+{
+  "name": "ai-github-action-demo",
+  "version": "1.0.0",
+  "description": "GitHub Action using ChatGPT API to generate commit message",
+  "main": "ai-commit.js",
+  "scripts": {
+    "start": "node ai-commit.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.7",
+    "dotenv": "^16.0.3"
+  }
+}
